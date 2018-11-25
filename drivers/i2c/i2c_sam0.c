@@ -10,7 +10,6 @@ LOG_MODULE_REGISTER(i2c_sam0);
 
 #include "i2c-priv.h"
 
-#include <board.h>
 #include <device.h>
 #include <errno.h>
 #include <soc.h>
@@ -37,7 +36,7 @@ struct i2c_sam0_dev_cfg {
 	u32_t pm_apbcmask;
 	u16_t gclk_clkctrl_id;
 	u32_t bitrate;
-	u32_t rise_time_ns;
+	u32_t rise_time_nsec;
 };
 
 /* Device run time data */
@@ -57,12 +56,12 @@ static void wait_synchronization(SercomI2cm *const i2cm)
 }
 
 static int i2c_sam0_set_bitrate(SercomI2cm *const i2cm, u32_t bitrate,
-				u32_t rise_time_ns)
+				u32_t rise_time_nsec)
 {
 	i2cm->BAUD.bit.BAUD = CONFIG_SYS_CLOCK_HW_CYCLES_PER_SEC /
 			      ((2 * bitrate) - 5 -
 			       (((CONFIG_SYS_CLOCK_HW_CYCLES_PER_SEC / 1000000)
-				 * rise_time_ns) /
+				 * rise_time_nsec) /
 				(2 * 1000)));
 	return 0;
 }
@@ -98,7 +97,7 @@ static int i2c_sam0_configure(struct device *dev, u32_t dev_config)
 		return -EINVAL;
 	}
 
-	retval = i2c_sam0_set_bitrate(i2cm, bitrate, cfg->rise_time_ns);
+	retval = i2c_sam0_set_bitrate(i2cm, bitrate, cfg->rise_time_nsec);
 
 	return 0;
 }
@@ -351,7 +350,7 @@ static const struct i2c_driver_api i2c_sam0_driver_api = {
 static const struct i2c_sam0_dev_cfg i2c_sam0_config_##n = {		\
 	.regs = (SercomI2cm *)DT_I2C_SAM0_SERCOM##n##_BASE_ADDRESS,	\
 	.bitrate = DT_I2C_SAM0_SERCOM##n##_CLK_FREQ,		\
-	.rise_time_ns = CONFIG_I2C_SAM0_SERCOM##n##_RISE_TIME_NS,	\
+	.rise_time_nsec = DT_I2C_SAM0_SERCOM##n##_RISE_TIME_NSEC,	\
 	.pm_apbcmask = PM_APBCMASK_SERCOM##n,				\
 	.gclk_clkctrl_id = GCLK_CLKCTRL_ID_SERCOM##n##_CORE,		\
 }
