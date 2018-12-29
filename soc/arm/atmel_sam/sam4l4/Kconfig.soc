@@ -1,0 +1,13 @@
+# Kconfig - Atmel SAM4L4 MCU series
+#
+# Copyright (c) 2018 Madani Lainani
+# SPDX-License-Identifier: Apache-2.0
+
+choice
+prompt "Atmel SAM4L4 MCU Selection"
+depends on SOC_SERIES_SAM4L4
+
+config SOC_PART_NUMBER_SAM4LC4C
+	bool "SAM4LC4C"
+
+endchoice

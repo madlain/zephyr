@@ -1,0 +1,24 @@
+# Kconfig - Atmel SAM4L4 MCU series configuration options
+#
+# Copyright (c) 2018 Madani Lainani
+# SPDX-License-Identifier: Apache-2.0
+
+if SOC_SERIES_SAM4L4
+
+config SOC_SERIES
+	string
+	default "sam4l4"
+
+config SOC_PART_NUMBER
+	string
+	default "sam4lc4c" if SOC_PART_NUMBER_SAM4LC4C
+
+config NUM_IRQS
+	int
+	default 80
+
+config SYS_CLOCK_HW_CYCLES_PER_SEC
+	int
+	default 48000000
+
+endif # SOC_SERIES_SAM4L4

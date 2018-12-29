@@ -1,5 +1,6 @@
 zephyr_include_directories(.)
-zephyr_sources(
+zephyr_sources_ifndef(
+  CONFIG_SOC_SERIES_SAM4L4
   soc_pmc.c
   soc_gpio.c
   )

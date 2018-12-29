@@ -1,0 +1,45 @@
+/*
+ * Copyright (c) 2018 Madani Lainani
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <arm/armv7-m.dtsi>
+
+/ {
+	cpus {
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		cpu@0 {
+			device_type = "cpu";
+			compatible = "arm,cortex-m4";
+			reg = <0>;
+		};
+	};
+
+	sram0: memory@20000000 {
+		device_type = "memory";
+		compatible = "mmio-sram";
+	};
+
+	flash0: flash@0 {
+		compatible = "soc-nv-flash";
+		label = "FLASH_0";
+	};
+
+	soc {
+		usart1: usart@40028000 {
+			compatible = "atmel,sam-usart";
+			reg = <0x40028000 0x100>;
+			interrupts = <66 1>;
+			peripheral-id = <66>;
+			status = "disabled";
+			label = "USART_0";
+		};
+	};
+};
+
+&nvic {
+	arm,num-irq-priority-bits = <4>;
+};
