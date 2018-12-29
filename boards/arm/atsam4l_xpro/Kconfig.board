@@ -1,0 +1,8 @@
+# Kconfig - Atmel SAM4L Xplained Pro configuration
+#
+# Copyright (c) 2018 Madani Lainani.
+# SPDX-License-Identifier: Apache-2.0
+
+config BOARD_ATSAM4L_XPRO
+	bool "Atmel SAM4L Xplained Pro"
+	depends on SOC_PART_NUMBER_SAM4LC4C
