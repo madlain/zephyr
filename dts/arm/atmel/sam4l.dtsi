@@ -5,6 +5,7 @@
  */
 
 #include <arm/armv7-m.dtsi>
+#include <dt-bindings/gpio/gpio.h>
 
 / {
 	cpus {
@@ -37,6 +38,37 @@
 			status = "disabled";
 			label = "USART_0";
 		};
+
+		porta: gpio@400e1000 {
+			compatible = "atmel,sam-gpio";
+			reg = <0x400e1000 0x200>;
+			interrupts = <25 1>;
+			peripheral-id = <25>;
+			label = "PORTA";
+			gpio-controller;
+			#gpio-cells = <2>;
+		};
+
+		portb: gpio@400e1200 {
+			compatible = "atmel,sam-gpio";
+			reg = <0x400e1200 0x200>;
+			interrupts = <26 1>;
+			peripheral-id = <26>;
+			label = "PORTB";
+			gpio-controller;
+			#gpio-cells = <2>;
+		};
+
+		portc: gpio@400e1400 {
+			compatible = "atmel,sam-gpio";
+			reg = <0x400e1400 0x200>;
+			interrupts = <27 1>;
+			peripheral-id = <27>;
+			label = "PORTC";
+			gpio-controller;
+			#gpio-cells = <2>;
+		};
+
 	};
 };
 

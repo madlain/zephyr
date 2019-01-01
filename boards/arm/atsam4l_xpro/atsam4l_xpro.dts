@@ -11,11 +11,32 @@
 	model = "Atmel SAM4L Xplained Pro";
 	compatible = "atsam4l,xpro", "atmel,sam4lc4c", "atmel,sam4l";
 
+	aliases {
+		led0 = &yellow_led;
+		sw0 = &user_button;
+	};
+
 	chosen {
 		zephyr,console = &usart1;
 		zephyr,shell-uart = &usart1;
 		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
+	};
+
+	leds {
+		compatible = "gpio-leds";
+		yellow_led: led_0 {
+			gpios = <&portc 7 0>;
+			label = "LED0";
+		};
+	};
+
+	buttons {
+		compatible = "gpio-keys";
+		user_button: button_0 {
+			gpios = <&portc 24 (GPIO_PUD_PULL_UP | GPIO_INT_ACTIVE_LOW)>;
+			label = "SW0";
+		};
 	};
 };
 

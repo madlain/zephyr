@@ -1,0 +1,11 @@
+# Kconfig.sam4l - Atmel SAM4L GPIO controller configuration options
+#
+# Copyright (c) 2018 Madani Lainani
+# SPDX-License-Identifier: Apache-2.0
+
+menuconfig GPIO_SAM4L
+	bool "Atmel SAM4L GPIO controller driver"
+	depends on GPIO && SOC_FAMILY_SAM
+	select HAS_DTS_GPIO
+	help
+	  Enable support for Atmel SAM4L GPIO controller.
