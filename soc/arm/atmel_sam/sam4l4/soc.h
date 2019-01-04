@@ -11,7 +11,7 @@
 
 #define DONT_USE_CMSIS_INIT
 
-#include <zephyr/types.h>
+#include <zephyr.h>
 
 #if defined(CONFIG_SOC_PART_NUMBER_SAM4LC4C)
 #include <sam4lc4c.h>

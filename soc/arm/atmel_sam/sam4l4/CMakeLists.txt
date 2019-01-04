@@ -3,4 +3,4 @@
 # Copyright (c) 2018 Madani Lainani
 # SPDX-License-Identifier: Apache-2.0
 
-zephyr_sources(soc.c)
+zephyr_sources(bpm.c dfll.c flashcalw.c osc.c soc.c sysclk.c)

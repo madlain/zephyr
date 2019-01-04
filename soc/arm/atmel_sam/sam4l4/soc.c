@@ -15,6 +15,7 @@
 #include <init.h>
 #include <kernel.h>
 #include <soc.h>
+#include <sysclk.h>
 
 static int atmel_sam4l_init(struct device *arg)
 {
@@ -32,6 +33,8 @@ static int atmel_sam4l_init(struct device *arg)
 	NMI_INIT();
 
 	irq_unlock(key);
+
+	sysclk_init();
 
 	return 0;
 }
