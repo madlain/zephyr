@@ -975,8 +975,10 @@ void sysclk_init(void)
 	}
 
 	/* Automatically switch to low power mode */
+#ifdef NOW_WE_CARE_ABOUT_THIS
 	bpm_configure_power_scaling(BPM, ps_value, BPM_PSCM_CPU_NOT_HALT);
 	while ((bpm_get_status(BPM) & BPM_SR_PSOK) == 0);
+#endif /* NOW_WE_CARE_ABOUT_THIS */
 
 	/* If the user has specified clock masks, enable only requested clocks */
 	irqflags_t const flags = cpu_irq_save();
