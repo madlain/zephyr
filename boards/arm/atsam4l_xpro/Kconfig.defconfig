@@ -10,6 +10,5 @@ config BOARD
 
 config ASF
 	bool
-	default n
 
 endif # BOARD_ATSAM4L_XPRO

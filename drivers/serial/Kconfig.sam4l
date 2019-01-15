@@ -1,0 +1,12 @@
+# Kconfig.sam4l - Atmel SAM4L USART configuration options
+#
+# Copyright (c) 2019 Madani Lainani
+# SPDX-License-Identifier: Apache-2.0
+
+config USART_SAM4L
+	bool "Atmel SAM4L USART driver"
+	depends on SOC_FAMILY_SAM && SOC_SERIES_SAM4L4
+	select SERIAL_HAS_DRIVER
+	# select SERIAL_SUPPORT_INTERRUPT
+	help
+	  Enable support for Atmel SAM4L USART
