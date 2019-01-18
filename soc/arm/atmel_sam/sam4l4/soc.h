@@ -4,8 +4,8 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-#ifndef _ATMEL_SAMD_SOC_H_
-#define _ATMEL_SAMD_SOC_H_
+#ifndef _ATMEL_SAM4L4_SOC_H_
+#define _ATMEL_SAM4L4_SOC_H_
 
 #ifndef _ASMLANGUAGE
 

@@ -40,8 +40,26 @@
 	};
 };
 
+/* &usart0 { */
+/* 	status = "ok"; */
+/* 	compatible = "atmel,sam-usart"; */
+/* 	current-speed = <115200>; */
+/* }; */
+
 &usart1 {
 	status = "ok";
 	compatible = "atmel,sam-usart";
 	current-speed = <115200>;
 };
+
+/* &usart2 { */
+/* 	status = "ok"; */
+/* 	compatible = "atmel,sam-usart"; */
+/* 	current-speed = <115200>; */
+/* }; */
+
+/* &usart3 { */
+/* 	status = "ok"; */
+/* 	compatible = "atmel,sam-usart"; */
+/* 	current-speed = <115200>; */
+/* }; */

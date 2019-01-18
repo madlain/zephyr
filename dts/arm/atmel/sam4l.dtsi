@@ -30,13 +30,40 @@
 	};
 
 	soc {
+		usart0: usart@40024000 {
+			compatible = "atmel,sam-usart";
+			reg = <0x40024000 0x100>;
+			interrupts = <65 1>;
+			peripheral-id = <65>;
+			status = "disabled";
+			label = "USART_0";
+		};
+
 		usart1: usart@40028000 {
 			compatible = "atmel,sam-usart";
 			reg = <0x40028000 0x100>;
 			interrupts = <66 1>;
 			peripheral-id = <66>;
 			status = "disabled";
-			label = "USART_0";
+			label = "USART_1";
+		};
+
+		usart2: usart@4002c000 {
+			compatible = "atmel,sam-usart";
+			reg = <0x4002c000 0x100>;
+			interrupts = <67 1>;
+			peripheral-id = <67>;
+			status = "disabled";
+			label = "USART_2";
+		};
+
+		usart3: usart@40030000 {
+			compatible = "atmel,sam-usart";
+			reg = <0x40030000 0x100>;
+			interrupts = <68 1>;
+			peripheral-id = <68>;
+			status = "disabled";
+			label = "USART_3";
 		};
 
 		porta: gpio@400e1000 {
